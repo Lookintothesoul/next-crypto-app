@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -14,23 +12,33 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Описание
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+Это простое приложение на Next js
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Имеет форму авторизации с валидацией емайла и пароля
 
-## Learn More
+После авторизации доступны две вкладки,
+   Главная, где подгружается список криптовалют
+   Профиль пользователя с его данными
+```
 
-To learn more about Next.js, take a look at the following resources:
+```
+    Емайл и пароль заданы статичными, в корне программы
+    
+    Например:
+        email: TestAdmin@gmail.com,
+        password: "TestAdminPassword123_"
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Docker run
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Docker Compose
+```docker compose -f "docker-compose.prod.yml" up -d --build```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Docker
+```
+docker build . -t next-test-app
+docker run -p 3000:3000 next-test-app
+```
